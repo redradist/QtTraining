@@ -10,18 +10,19 @@ int main(int argc, char *argv[])
     names << "Mary" << "Ann" << "Charlynn" << "Marylynn" << "Margaret"
           << "Kate" << "Rose" << "Gwendolyn";
 
-
     // TODO: using Java-style iterators print the longest name from the list
     // use QString::arg to output message with this name
+    qDebug() << "Task #0";
     {
         QListIterator<QString> nameIter(names);
         QString longestName;
         while (nameIter.hasNext())
         {
+            QString nextString = nameIter.next();
             if (longestName.isNull() or
-                longestName < nameIter.peekNext())
+                longestName < nextString)
             {
-                longestName = nameIter.next();
+                longestName = nextString;
             }
         }
         qDebug() << longestName;
@@ -29,6 +30,7 @@ int main(int argc, char *argv[])
 
     // TODO: using STL-style iterators print the shortest name from the list
     // use QString::prepend and append to output message with this name
+    qDebug() << "Task #1";
     {
         QString shortestName;
         for (auto iter = names.begin(); names.end() != iter; ++iter)
@@ -44,6 +46,7 @@ int main(int argc, char *argv[])
 
     // TODO: using foreach and QStringList show all names with "lynn" suffix
     // and print it separated by ',' as one string
+    qDebug() << "Task #2";
     QStringList containedNames;
     for (QString & name : names)
     {
@@ -58,18 +61,20 @@ int main(int argc, char *argv[])
 
     // print all names in reverse order
     // TODO: 1. Using QStack
+    qDebug() << "Task #3";
     QStack<QString> stack;
     for(QString name : containedNames)
     {
-        stack.push_back(name);
+        stack.push(name);
     }
 
-    for (QString name : stack)
+    while (!stack.isEmpty())
     {
-        qDebug() << name;
+        qDebug() << stack.pop();
     }
 
     // TODO: 2. Using other QList
+    qDebug() << "Task #4";
     QList<QString> list(containedNames);
     for (QString name : list)
     {
@@ -77,6 +82,7 @@ int main(int argc, char *argv[])
     }
 
     // TODO: 3. Without other containers
+    qDebug() << "Task #5";
     for (QString name : containedNames)
     {
         qDebug() << name;

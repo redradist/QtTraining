@@ -10,5 +10,8 @@ int main(int argc, char *argv[])
     // NOTES
     QPointer p(MainWindow);
 
+    // Signals and slots
+
+
     return a.exec();
 }
