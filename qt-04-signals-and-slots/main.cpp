@@ -32,5 +32,13 @@ int main(int argc, char *argv[])
     account1->withdraw(100); // you must be notified about account changes and that total balance is changed
     account2->withdraw(200); // you must be notified about account changes and that total balance is changed
 
+    QObject::disconnect(account1, &BankAccount::balanceChanged, &logger, &Logger::logAccountChange);
+    QObject::disconnect(account2, &BankAccount::balanceChanged, &logger, &Logger::logAccountChange);
+
+    QObject::disconnect(account1, &BankAccount::balanceChanged, &bank, &Bank::totalAccountBalanceChanged);
+    QObject::disconnect(account2, &BankAccount::balanceChanged, &bank, &Bank::totalAccountBalanceChanged);
+
+    QObject::disconnect(&bank, &Bank::totalBalanceChanged, &logger, &Logger::logTotalBalance);
+
     return a.exec();
 }
