@@ -12,10 +12,11 @@ class BankAccount : public QObject
     // TODO: declare QString holderName property that's represents account holder name
     //       this property must have getter and setter
     Q_PROPERTY(QString holderName READ holderName WRITE setHolderName NOTIFY holderNameChanged)
-    Q_PROPERTY(long balance MEMBER m_balance READ balance CONSTANT)
 
     // TODO: declare long balance property
     //       this property should be read-only and associated with variable m_balance
+    Q_PROPERTY(long balance MEMBER m_balance READ balance CONSTANT)
+
 public:
     explicit BankAccount(QObject *parent = 0);
 

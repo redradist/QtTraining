@@ -32,6 +32,7 @@ void BankAccount::setHolderName(QString name)
 
 long BankAccount::balance() const
 {
+    qDebug() << "Reading balance value: " << m_balance;
     return m_balance;
 }
 
