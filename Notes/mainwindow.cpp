@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     blockSignals(true);
+    QString sfsfds = name;
 }
 
 MainWindow::~MainWindow()

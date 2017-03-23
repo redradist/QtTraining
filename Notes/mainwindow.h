@@ -15,6 +15,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged RESET reset)
+
 private:
     Ui::MainWindow *ui;
 };
